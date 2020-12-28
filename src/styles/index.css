@@ -1,0 +1,27 @@
+* { margin: 0; padding: 0; }
+
+html {
+    height: 100%;
+}
+
+.wrap {
+    display: grid;
+    min-height: 100vw;
+    grid-template-rows: 0.2fr 5fr;
+    grid-template-areas: "head" "cont";
+}
+
+.wrap > header {
+    grid-area: head;
+    width: 100%;
+    min-height: 30px;
+    max-height: 80px;
+    background-color: green;
+}
+
+.wrap > div {
+    margin-left: 7vw;
+    margin-right: 7vw;
+    grid-area: cont;
+    background-color: darkblue;
+}
