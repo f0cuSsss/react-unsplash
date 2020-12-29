@@ -1,0 +1,13 @@
+.search-bar {
+    grid-area: sb;
+    margin: 0px 10px;
+    align-self: center;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 7px;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+}
