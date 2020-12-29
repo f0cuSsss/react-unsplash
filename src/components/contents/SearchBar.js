@@ -1,14 +1,23 @@
 import React from 'react'
+import { Field, reduxForm } from 'redux-form'
 
 import '../../styles/SearchBar.css'
 
-const SearchBar = () => {
+class SearchBar extends React.Component {
 
-    return (
-        <div className="search-bar">
-            <input placeholder="Search a photo..."/>
-        </div>
-    );
+    renderInput({ input, placeholder }) {
+        return <input {...input} placeholder={placeholder} />;
+    }
+
+    render() {
+        return (
+            <form onSubmit={this.props.handleSubmit(() => {})} className="search-bar">
+                <Field name="searchterm" component={this.renderInput} placeholder="Search a photo..." />
+            </form>
+        );
+    }
 }
 
-export default SearchBar;
+export default reduxForm({
+    form: 'SearchBar'
+})(SearchBar);
