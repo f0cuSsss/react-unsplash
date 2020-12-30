@@ -1,12 +1,19 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { connect } from 'react-redux'
 
-const SearchedList = () => {
+import ImageList from './ImageList'
+
+const SearchedList = props => {
 
     return (
-        <div>
-            SearchedList
+        <div style={{ padding: '10px' }}>
+            <ImageList images={props.images}/>
         </div>
     );
 }
 
-export default SearchedList;
+const mapStateToProps = (state) => {
+    return { images: state.images }
+}
+
+export default connect(mapStateToProps)(SearchedList);
