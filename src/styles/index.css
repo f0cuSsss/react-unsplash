@@ -18,8 +18,8 @@ html {
 }
 
 .wrap > div {
-    margin-left: 7vw;
-    margin-right: 7vw;
+    padding-left: 7vw;
+    padding-right: 7vw;
     grid-area: cont;
-    background-color: #99d0cc;
+    background-color: #dcefee;
 }
