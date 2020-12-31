@@ -1,9 +1,12 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
-export default class ImageCard extends React.Component {
+import { addToFavorite } from '../../actions'
+
+class ImageCard extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { spans: 0 }
+        this.state = { spans: 0, isFavorite: false }
         this.imageRef = React.createRef();
     }
 
@@ -17,15 +20,20 @@ export default class ImageCard extends React.Component {
         this.setState({ spans });
     }
 
+    addToFavorite = () => {
+        this.props.addToFavorite(this.props.image);
+        this.setState({ isFavorite: !this.state.isFavorite });
+    }
+
     render() {
         const { description, urls } = this.props.image;
         return (
             <div className="image-box" style={{ gridRowEnd: `span ${this.state.spans}` }}>
                 <img className="image-box__img" ref={this.imageRef} alt={description} src={urls.regular}/>
                 <div className="image-box__action-block">
-                    <div className="favorite-icon">
-                         <i className="ui icon star outline large" />
-                    </div> 
+                    <div className="favorite-icon" onClick={this.addToFavorite}>
+                         <i className={`ui icon star ${this.state.isFavorite ? '' : 'outline' } large`} />
+                    </div>
                    <div className="expand-icon">
                         <i className="ui icon expand large" />
                    </div>
@@ -34,3 +42,6 @@ export default class ImageCard extends React.Component {
         );
     }
 }
+
+
+export default connect(null, { addToFavorite })(ImageCard);

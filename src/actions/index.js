@@ -1,4 +1,7 @@
-import { FETCH_PHOTOS } from './types'
+import { 
+    FETCH_PHOTOS,
+    ADD_TO_FAVORITE
+} from './types'
 import unsplash from '../apis/unsplash'
 
 export const fetchPhotos = term => async dispatch => {
@@ -12,4 +15,8 @@ export const fetchPhotos = term => async dispatch => {
             },
     });;
     dispatch({ type: FETCH_PHOTOS, payload: response.data.results });
+}
+
+export const addToFavorite = image => {
+    return { type: ADD_TO_FAVORITE, payload: image }
 }

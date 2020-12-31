@@ -1,1 +1,2 @@
 export const FETCH_PHOTOS = 'FETCH_PHOTOS'
+export const ADD_TO_FAVORITE = 'ADD_TO_FAVORITE'
