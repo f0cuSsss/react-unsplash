@@ -25,6 +25,7 @@ header {
     justify-self: center;
     color: #fffb08;
     transition: 0.4s;
+    position: relative;
 }
 
 .favorite:hover {
@@ -32,4 +33,11 @@ header {
     color: #fffb08;
     transition: 0.4s;
     transform: scale(1.2);
+}
+
+.favorite > span {
+    position: absolute;
+    right: -1px;
+    bottom: -8px;
+    color: rgb(0, 121, 20);
 }
