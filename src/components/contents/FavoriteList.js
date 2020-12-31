@@ -1,12 +1,20 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
-const FavoriteList = () => {
+import ImageList from './ImageList'
+
+const FavoriteList = (props) => {
 
     return (
-        <div>
-            FavoriteList
+        <div style={{ padding: '10px' }}>
+            <ImageList images={props.images}/>
         </div>
     );
 }
 
-export default FavoriteList;
+const mapStateToProps = state => {
+    console.log(state.favorite_images)
+    return { images: state.favorite_images }
+}
+
+export default connect(mapStateToProps)(FavoriteList);

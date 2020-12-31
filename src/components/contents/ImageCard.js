@@ -22,7 +22,6 @@ class ImageCard extends React.Component {
 
     addToFavorite = () => {
         this.props.addToFavorite(this.props.image);
-        this.setState({ isFavorite: !this.state.isFavorite });
     }
 
     render() {
@@ -32,7 +31,7 @@ class ImageCard extends React.Component {
                 <img className="image-box__img" ref={this.imageRef} alt={description} src={urls.regular}/>
                 <div className="image-box__action-block">
                     <div className="favorite-icon" onClick={this.addToFavorite}>
-                         <i className={`ui icon star ${this.state.isFavorite ? '' : 'outline' } large`} />
+                         <i className={`ui icon star ${this.props.isFavorite ? '' : 'outline' } large`} />
                     </div>
                    <div className="expand-icon">
                         <i className="ui icon expand large" />
@@ -43,5 +42,12 @@ class ImageCard extends React.Component {
     }
 }
 
+const mapStateToProps = (state, ownProps) => {
+    return { 
+        isFavorite: 
+            state.favorite_images.find(img => img.id === ownProps.image.id) 
+            ? true : false
+    }
+}
 
-export default connect(null, { addToFavorite })(ImageCard);
+export default connect(mapStateToProps, { addToFavorite })(ImageCard);
