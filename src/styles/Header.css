@@ -6,21 +6,30 @@ header {
     grid-template-areas: "title sb fav";
 }
 
-header > span {
+.header__title {
     grid-area: title;
     text-align: center;
     align-self: center;
+
+}
+
+.header__title > span {
     font-size: 30px;
     font-weight: bold;
+    color: black;
 }
 
 .favorite {
     grid-area: fav;
     align-self: center;
     justify-self: center;
-    color: yellow;
+    color: #fffb08;
+    transition: 0.4s;
 }
 
 .favorite:hover {
     cursor: pointer;
+    color: #fffb08;
+    transition: 0.4s;
+    transform: scale(1.2);
 }

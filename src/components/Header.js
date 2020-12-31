@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import '../styles/Header.css'
 import SearchBar from './contents/SearchBar'
@@ -7,11 +8,13 @@ const Header = () => {
 
     return (
         <header>
-            <span>Unsplash</span>
+            <Link className="header__title" to="/">
+                <span>Unsplash</span>
+            </Link>
             <SearchBar />
-            <div className="favorite">
+            <Link className="favorite" to="/favorite">
                 <i className="ui icon star large" />
-            </div>
+            </Link>
         </header>
     );
 }
