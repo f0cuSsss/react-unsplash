@@ -5,7 +5,38 @@
     grid-auto-rows: 10px;
 }
 
-.image-list img {
+.image-box {
+    position: relative;
+}
+
+.image-box__img {
     width: 250px;
     grid-row-end: span 2;
+}
+
+.image-box__img:hover ~ .image-box__action-block {
+    cursor: pointer;
+    display: flex;
+}
+
+.image-box__action-block {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    display: none;
+    flex-direction: row;
+    background-color: rgb(85, 255, 232, 0.8);
+    cursor: pointer;
+}
+
+.image-box__action-block:hover {
+    display: flex;
+}
+
+.image-box__action-block > div {
+    padding: 5px;
+}
+
+.image-box__action-block > div > i {
+    color: black;
 }

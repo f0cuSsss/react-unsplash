@@ -20,8 +20,16 @@ export default class ImageCard extends React.Component {
     render() {
         const { description, urls } = this.props.image;
         return (
-            <div style={{ gridRowEnd: `span ${this.state.spans}` }}>
-                <img ref={this.imageRef} alt={description} src={urls.regular}/>
+            <div className="image-box" style={{ gridRowEnd: `span ${this.state.spans}` }}>
+                <img className="image-box__img" ref={this.imageRef} alt={description} src={urls.regular}/>
+                <div className="image-box__action-block">
+                    <div className="favorite-icon">
+                         <i className="ui icon star outline large" />
+                    </div> 
+                   <div className="expand-icon">
+                        <i className="ui icon expand large" />
+                   </div>
+                </div>
             </div>
         );
     }
