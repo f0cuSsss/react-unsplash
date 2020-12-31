@@ -6,10 +6,10 @@ export const fetchPhotos = term => async dispatch => {
     {
         params: 
             { 
+                page: 1,
+                per_page: 15,
                 query: term
             },
     });;
-    console.log("FETCHED PHOTOS");
-    console.log(response.data.results);
     dispatch({ type: FETCH_PHOTOS, payload: response.data.results });
 }
