@@ -1,6 +1,8 @@
 import { 
     FETCH_PHOTOS,
-    ADD_TO_FAVORITE
+    ADD_TO_FAVORITE,
+    DISPLAY_POPUP,
+    CLOSE_POPUP
 } from './types'
 import unsplash from '../apis/unsplash'
 
@@ -19,4 +21,12 @@ export const fetchPhotos = term => async dispatch => {
 
 export const addToFavorite = image => {
     return { type: ADD_TO_FAVORITE, payload: image }
+}
+
+export const displayPopup = image => {
+    return { type: DISPLAY_POPUP, payload: image }
+}
+
+export const closePopup = () => {
+    return { type: CLOSE_POPUP }
 }

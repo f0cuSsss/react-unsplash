@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { addToFavorite } from '../../actions'
+import { addToFavorite, displayPopup } from '../../actions'
 
 class ImageCard extends React.Component {
     constructor(props) {
@@ -24,20 +24,25 @@ class ImageCard extends React.Component {
         this.props.addToFavorite(this.props.image);
     }
 
+    onDisplayPopup = () => {
+        this.props.displayPopup(this.props.image);
+    }
+
     render() {
         const { description, urls } = this.props.image;
         return (
-            <div className="image-box" style={{ gridRowEnd: `span ${this.state.spans}` }}>
-                <img className="image-box__img" ref={this.imageRef} alt={description} src={urls.regular}/>
-                <div className="image-box__action-block">
-                    <div className="favorite-icon" onClick={this.addToFavorite}>
-                         <i className={`ui icon star ${this.props.isFavorite ? '' : 'outline' } large`} />
+                <div className="image-box" style={{ gridRowEnd: `span ${this.state.spans}` }}>
+                    <img className="image-box__img" ref={this.imageRef} alt={description} src={urls.regular}/>
+                    <div className="image-box__action-block">
+                        <div className="favorite-icon" onClick={this.addToFavorite}>
+                            <i className={`ui icon star ${this.props.isFavorite ? '' : 'outline' } large`} />
+                        </div>
+                    <div className="expand-icon" onClick={this.onDisplayPopup}>
+                            <i className="ui icon expand large" />
                     </div>
-                   <div className="expand-icon">
-                        <i className="ui icon expand large" />
-                   </div>
+                    </div>
                 </div>
-            </div>
+                
         );
     }
 }
@@ -50,4 +55,4 @@ const mapStateToProps = (state, ownProps) => {
     }
 }
 
-export default connect(mapStateToProps, { addToFavorite })(ImageCard);
+export default connect(mapStateToProps, { addToFavorite, displayPopup })(ImageCard);
