@@ -3,7 +3,7 @@ import { Field, reduxForm } from 'redux-form'
 import { connect } from 'react-redux'
 
 import '../../styles/SearchBar.css'
-import { fetchPhotos } from '../../actions'
+import { fetchPhotos, setNextPage, clearImagesArray } from '../../actions'
 
 class SearchBar extends React.Component {
 
@@ -11,8 +11,10 @@ class SearchBar extends React.Component {
         return <input {...input} placeholder={placeholder} />;
     }
 
-    onSubmit = (formValues) => {
-        this.props.fetchPhotos(formValues.searchterm);
+    onSubmit = () => {
+        this.props.setNextPage(0);
+        this.props.clearImagesArray();
+        this.props.fetchPhotos();
     }
 
     render() {
@@ -24,6 +26,6 @@ class SearchBar extends React.Component {
     }
 }
 
-export default connect(null, { fetchPhotos })(reduxForm({
+export default connect(null, { fetchPhotos, setNextPage, clearImagesArray })(reduxForm({
     form: 'SearchBar'
 })(SearchBar));

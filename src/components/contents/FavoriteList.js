@@ -7,13 +7,12 @@ const FavoriteList = (props) => {
 
     return (
         <div style={{ padding: '10px' }}>
-            <ImageList images={props.images}/>
+            <ImageList emptyTitle="You do not have any favorite images" images={props.images}/>
         </div>
     );
 }
 
 const mapStateToProps = state => {
-    console.log(state.favorite_images)
     return { images: state.favorite_images }
 }
 

@@ -8,7 +8,7 @@ const SearchedList = props => {
 
     return (
         <div style={{ padding: '10px' }}>
-            <ImageList images={props.images} />
+            <ImageList emptyTitle="Search an images in header" images={props.images} />
             <Popup />
         </div>
     );
