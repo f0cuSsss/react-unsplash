@@ -6,8 +6,8 @@ html {
 
 .wrap {
     display: grid;
-    min-height: 100vw;
-    grid-template-rows: 50px 5fr;
+    min-height: 100vh;
+    grid-template-rows: 50px auto;
     grid-template-columns: 100%;
     grid-template-areas: "head" "cont";
 }
@@ -22,4 +22,5 @@ html {
     padding-right: 7vw;
     grid-area: cont;
     background-color: #dcefee;
+    min-height: calc(100vh - 50px);
 }
