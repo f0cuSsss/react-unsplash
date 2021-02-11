@@ -1,0 +1,26 @@
+* { margin: 0; padding: 0; }
+
+html {
+    height: 100%;
+}
+
+.wrap {
+    display: grid;
+    min-height: 100vh;
+    grid-template-rows: 50px auto;
+    grid-template-columns: 100%;
+    grid-template-areas: "head" "cont";
+}
+
+.wrap > header {
+    grid-area: head;
+    background-color: #75c7c1;
+}
+
+.wrap > div {
+    padding-left: 7vw;
+    padding-right: 7vw;
+    grid-area: cont;
+    background-color: #dcefee;
+    min-height: calc(100vh - 50px);
+}

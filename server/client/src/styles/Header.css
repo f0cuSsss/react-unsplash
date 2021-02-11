@@ -1,0 +1,46 @@
+header {
+  display: grid;
+  grid-template-columns: 1fr 3fr 0.7fr;
+  grid-template-rows: auto;
+  grid-template-areas: 'title sb fav';
+}
+
+.header__title {
+  grid-area: title;
+  text-align: center;
+  align-self: center;
+}
+
+.header__title > span {
+  font-size: 30px;
+  font-weight: bold;
+  color: black;
+}
+
+.actions-navbar {
+  grid-area: fav;
+  display: flex;
+  align-items: center;
+}
+
+.favorite {
+  align-self: center;
+  justify-self: center;
+  color: #fffb08;
+  transition: 0.4s;
+  position: relative;
+}
+
+.favorite:hover {
+  cursor: pointer;
+  color: #fffb08;
+  transition: 0.4s;
+  transform: scale(1.2);
+}
+
+.favorite > span {
+  position: absolute;
+  right: -1px;
+  bottom: -8px;
+  color: rgb(0, 121, 20);
+}
